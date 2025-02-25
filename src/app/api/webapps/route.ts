@@ -6,14 +6,14 @@ export async function GET() {
         const client = await clientPromise;
         const db = client.db('WebApp');
 
-        const apps = await db.collection('app_list')
+        const webApps = await db.collection('app_list')
             .find({})
             .toArray();
 
-        return NextResponse.json(apps);
+        return NextResponse.json(webApps);
 
     } catch (error) {
         console.error('Database Error:', error);
-        return NextResponse.json({ error: 'Failed to fetch apps' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to fetch webapps' }, { status: 500 });
     }
 }
